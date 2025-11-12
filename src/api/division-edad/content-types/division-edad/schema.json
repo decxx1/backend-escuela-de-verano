@@ -1,19 +1,18 @@
 {
-  "kind": "singleType",
-  "collectionName": "divisions_tables",
+  "kind": "collectionType",
+  "collectionName": "divisiones_edades",
   "info": {
-    "singularName": "divisions-table",
-    "pluralName": "divisions-tables",
-    "displayName": "divisionsTable"
+    "singularName": "division-edad",
+    "pluralName": "divisiones-edades",
+    "displayName": "Divisiones-edades"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Nombre": {
-      "type": "string",
-      "required": true
+    "Titulo": {
+      "type": "string"
     },
     "Encabezado1": {
       "type": "string"
@@ -36,25 +35,25 @@
     "Encabezado7": {
       "type": "string"
     },
-    "Columna1": {
+    "Contenido1": {
       "type": "string"
     },
-    "Columna2": {
+    "Contenido2": {
       "type": "string"
     },
-    "Columna3": {
+    "Contenido3": {
       "type": "string"
     },
-    "Columna4": {
+    "Contenido4": {
       "type": "string"
     },
-    "Columna5": {
+    "Contenido5": {
       "type": "string"
     },
-    "Columna6": {
+    "Contenido6": {
       "type": "string"
     },
-    "Columna7": {
+    "Contenido7": {
       "type": "string"
     }
   }

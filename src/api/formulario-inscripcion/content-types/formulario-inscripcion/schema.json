@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "formulario_inscripcions",
+  "info": {
+    "singularName": "formulario-inscripcion",
+    "pluralName": "formulario-inscripcions",
+    "displayName": "FormularioInscripcion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Documento": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}

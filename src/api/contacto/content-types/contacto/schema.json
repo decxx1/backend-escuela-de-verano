@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "contactos",
+  "info": {
+    "singularName": "contacto",
+    "pluralName": "contactos",
+    "displayName": "Contacto"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Telefono": {
+      "type": "string"
+    },
+    "Whatsapp": {
+      "type": "string"
+    },
+    "Ubicacion": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Horarios": {
+      "type": "text"
+    },
+    "Facebook": {
+      "type": "string"
+    },
+    "Instagram": {
+      "type": "string"
+    },
+    "MapUrl": {
+      "type": "string"
+    },
+    "MapIframe": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_fechas_ingreso_salida_guardias",
+  "info": {
+    "displayName": "Ingreso-salida-guardia",
+    "icon": "hashtag"
+  },
+  "options": {},
+  "attributes": {
+    "Turno": {
+      "type": "string"
+    },
+    "ingreso": {
+      "type": "time"
+    },
+    "Salida": {
+      "type": "time"
+    }
+  },
+  "config": {}
+}

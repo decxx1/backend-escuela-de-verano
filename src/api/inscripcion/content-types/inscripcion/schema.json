@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "inscripciones",
+  "info": {
+    "singularName": "inscripcion",
+    "pluralName": "inscripciones",
+    "displayName": "Inscripciones"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Habilitado": {
+      "type": "boolean"
+    }
+  }
+}

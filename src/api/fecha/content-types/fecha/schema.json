@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "fechas",
+  "info": {
+    "singularName": "fecha",
+    "pluralName": "fechas",
+    "displayName": "Fechas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Temporada": {
+      "type": "string"
+    },
+    "Inicio": {
+      "type": "date"
+    },
+    "Fin": {
+      "type": "date"
+    },
+    "NoLaborables": {
+      "type": "string"
+    },
+    "IngresoSalida": {
+      "type": "component",
+      "component": "fechas.ingreso-salida-guardia",
+      "repeatable": true
+    },
+    "HorariosGuardia": {
+      "type": "component",
+      "component": "fechas.ingreso-salida-guardia",
+      "repeatable": true
+    }
+  }
+}

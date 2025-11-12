@@ -430,25 +430,91 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiDivisionsTableDivisionsTable
-  extends Struct.SingleTypeSchema {
-  collectionName: 'divisions_tables';
+export interface ApiActividadActividad extends Struct.CollectionTypeSchema {
+  collectionName: 'actividades';
   info: {
-    displayName: 'divisionsTable';
-    pluralName: 'divisions-tables';
-    singularName: 'divisions-table';
+    displayName: 'Actividades';
+    pluralName: 'actividades';
+    singularName: 'actividad';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Columna1: Schema.Attribute.String;
-    Columna2: Schema.Attribute.String;
-    Columna3: Schema.Attribute.String;
-    Columna4: Schema.Attribute.String;
-    Columna5: Schema.Attribute.String;
-    Columna6: Schema.Attribute.String;
-    Columna7: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::actividad.actividad'
+    > &
+      Schema.Attribute.Private;
+    Parrafo: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    Subtitulo: Schema.Attribute.String;
+    Titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiContactoContacto extends Struct.SingleTypeSchema {
+  collectionName: 'contactos';
+  info: {
+    displayName: 'Contacto';
+    pluralName: 'contactos';
+    singularName: 'contacto';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Email: Schema.Attribute.Email;
+    Facebook: Schema.Attribute.String;
+    Horarios: Schema.Attribute.Text;
+    Instagram: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contacto.contacto'
+    > &
+      Schema.Attribute.Private;
+    MapIframe: Schema.Attribute.Text;
+    MapUrl: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Telefono: Schema.Attribute.String;
+    Ubicacion: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Whatsapp: Schema.Attribute.String;
+  };
+}
+
+export interface ApiDivisionEdadDivisionEdad
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'divisiones_edades';
+  info: {
+    displayName: 'Divisiones-edades';
+    pluralName: 'divisiones-edades';
+    singularName: 'division-edad';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Contenido1: Schema.Attribute.String;
+    Contenido2: Schema.Attribute.String;
+    Contenido3: Schema.Attribute.String;
+    Contenido4: Schema.Attribute.String;
+    Contenido5: Schema.Attribute.String;
+    Contenido6: Schema.Attribute.String;
+    Contenido7: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -462,11 +528,134 @@ export interface ApiDivisionsTableDivisionsTable
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::divisions-table.divisions-table'
+      'api::division-edad.division-edad'
     > &
       Schema.Attribute.Private;
-    Nombre: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    Titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFechaFecha extends Struct.SingleTypeSchema {
+  collectionName: 'fechas';
+  info: {
+    displayName: 'Fechas';
+    pluralName: 'fechas';
+    singularName: 'fecha';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Fin: Schema.Attribute.Date;
+    HorariosGuardia: Schema.Attribute.Component<
+      'fechas.ingreso-salida-guardia',
+      true
+    >;
+    IngresoSalida: Schema.Attribute.Component<
+      'fechas.ingreso-salida-guardia',
+      true
+    >;
+    Inicio: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fecha.fecha'> &
+      Schema.Attribute.Private;
+    NoLaborables: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Temporada: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFormularioInscripcionFormularioInscripcion
+  extends Struct.SingleTypeSchema {
+  collectionName: 'formulario_inscripcions';
+  info: {
+    displayName: 'FormularioInscripcion';
+    pluralName: 'formulario-inscripcions';
+    singularName: 'formulario-inscripcion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Documento: Schema.Attribute.Media<'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::formulario-inscripcion.formulario-inscripcion'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInscripcionInscripcion extends Struct.SingleTypeSchema {
+  collectionName: 'inscripciones';
+  info: {
+    displayName: 'Inscripciones';
+    pluralName: 'inscripciones';
+    singularName: 'inscripcion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Habilitado: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::inscripcion.inscripcion'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPreguntaFrecuentePreguntaFrecuente
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'preguntas_frecuentes';
+  info: {
+    displayName: 'Preguntas-Frecuentes';
+    pluralName: 'preguntas-frecuentes';
+    singularName: 'pregunta-frecuente';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pregunta-frecuente.pregunta-frecuente'
+    > &
+      Schema.Attribute.Private;
+    Pregunta: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Respuesta: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -983,7 +1172,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::divisions-table.divisions-table': ApiDivisionsTableDivisionsTable;
+      'api::actividad.actividad': ApiActividadActividad;
+      'api::contacto.contacto': ApiContactoContacto;
+      'api::division-edad.division-edad': ApiDivisionEdadDivisionEdad;
+      'api::fecha.fecha': ApiFechaFecha;
+      'api::formulario-inscripcion.formulario-inscripcion': ApiFormularioInscripcionFormularioInscripcion;
+      'api::inscripcion.inscripcion': ApiInscripcionInscripcion;
+      'api::pregunta-frecuente.pregunta-frecuente': ApiPreguntaFrecuentePreguntaFrecuente;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
