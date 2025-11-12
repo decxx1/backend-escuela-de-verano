@@ -14,47 +14,10 @@
     "Titulo": {
       "type": "string"
     },
-    "Encabezado1": {
-      "type": "string"
-    },
-    "Encabezado2": {
-      "type": "string"
-    },
-    "Encabezado3": {
-      "type": "string"
-    },
-    "Encabezado4": {
-      "type": "string"
-    },
-    "Encabezado5": {
-      "type": "string"
-    },
-    "Encabezado6": {
-      "type": "string"
-    },
-    "Encabezado7": {
-      "type": "string"
-    },
-    "Contenido1": {
-      "type": "string"
-    },
-    "Contenido2": {
-      "type": "string"
-    },
-    "Contenido3": {
-      "type": "string"
-    },
-    "Contenido4": {
-      "type": "string"
-    },
-    "Contenido5": {
-      "type": "string"
-    },
-    "Contenido6": {
-      "type": "string"
-    },
-    "Contenido7": {
-      "type": "string"
+    "Columna": {
+      "type": "component",
+      "component": "tablas.columna",
+      "repeatable": true
     }
   }
 }

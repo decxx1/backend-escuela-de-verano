@@ -13,10 +13,23 @@ export interface FechasIngresoSalidaGuardia extends Struct.ComponentSchema {
   };
 }
 
+export interface TablasColumna extends Struct.ComponentSchema {
+  collectionName: 'components_tablas_columnas';
+  info: {
+    displayName: 'Columna';
+    icon: 'apps';
+  };
+  attributes: {
+    Contenido: Schema.Attribute.String;
+    Encabezado: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'fechas.ingreso-salida-guardia': FechasIngresoSalidaGuardia;
+      'tablas.columna': TablasColumna;
     }
   }
 }

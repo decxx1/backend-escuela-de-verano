@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_tablas_columnas",
+  "info": {
+    "displayName": "Columna",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Encabezado": {
+      "type": "string"
+    },
+    "Contenido": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

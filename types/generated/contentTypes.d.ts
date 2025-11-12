@@ -508,23 +508,10 @@ export interface ApiDivisionEdadDivisionEdad
     draftAndPublish: true;
   };
   attributes: {
-    Contenido1: Schema.Attribute.String;
-    Contenido2: Schema.Attribute.String;
-    Contenido3: Schema.Attribute.String;
-    Contenido4: Schema.Attribute.String;
-    Contenido5: Schema.Attribute.String;
-    Contenido6: Schema.Attribute.String;
-    Contenido7: Schema.Attribute.String;
+    Columna: Schema.Attribute.Component<'tablas.columna', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Encabezado1: Schema.Attribute.String;
-    Encabezado2: Schema.Attribute.String;
-    Encabezado3: Schema.Attribute.String;
-    Encabezado4: Schema.Attribute.String;
-    Encabezado5: Schema.Attribute.String;
-    Encabezado6: Schema.Attribute.String;
-    Encabezado7: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
