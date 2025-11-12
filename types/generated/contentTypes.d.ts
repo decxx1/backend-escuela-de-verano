@@ -430,6 +430,49 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDivisionsTableDivisionsTable
+  extends Struct.SingleTypeSchema {
+  collectionName: 'divisions_tables';
+  info: {
+    displayName: 'divisionsTable';
+    pluralName: 'divisions-tables';
+    singularName: 'divisions-table';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Columna1: Schema.Attribute.String;
+    Columna2: Schema.Attribute.String;
+    Columna3: Schema.Attribute.String;
+    Columna4: Schema.Attribute.String;
+    Columna5: Schema.Attribute.String;
+    Columna6: Schema.Attribute.String;
+    Columna7: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Encabezado1: Schema.Attribute.String;
+    Encabezado2: Schema.Attribute.String;
+    Encabezado3: Schema.Attribute.String;
+    Encabezado4: Schema.Attribute.String;
+    Encabezado5: Schema.Attribute.String;
+    Encabezado6: Schema.Attribute.String;
+    Encabezado7: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::divisions-table.divisions-table'
+    > &
+      Schema.Attribute.Private;
+    Nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -940,6 +983,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::divisions-table.divisions-table': ApiDivisionsTableDivisionsTable;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
