@@ -650,10 +650,10 @@ export interface ApiPreguntaFrecuentePreguntaFrecuente
         minLength: 3;
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    Respuesta: Schema.Attribute.Text &
+    Respuesta: Schema.Attribute.RichText &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
-        minLength: 5;
+        minLength: 10;
       }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

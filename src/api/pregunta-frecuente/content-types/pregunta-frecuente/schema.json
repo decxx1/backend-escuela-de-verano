@@ -17,9 +17,9 @@
       "required": true
     },
     "Respuesta": {
-      "type": "text",
-      "minLength": 5,
-      "required": true
+      "type": "richtext",
+      "required": true,
+      "minLength": 10
     }
   }
 }
