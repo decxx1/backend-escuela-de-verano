@@ -444,17 +444,17 @@ export interface ApiActividadActividad extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Descripcion: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 10;
+      }>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::actividad.actividad'
     > &
       Schema.Attribute.Private;
-    Parrafo: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 5;
-      }>;
     publishedAt: Schema.Attribute.DateTime;
     Subtitulo: Schema.Attribute.String;
     Titulo: Schema.Attribute.String & Schema.Attribute.Required;

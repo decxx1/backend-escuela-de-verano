@@ -18,10 +18,10 @@
     "Subtitulo": {
       "type": "string"
     },
-    "Parrafo": {
-      "type": "text",
-      "minLength": 5,
-      "required": true
+    "Descripcion": {
+      "type": "richtext",
+      "required": true,
+      "minLength": 10
     }
   }
 }
