@@ -6,11 +6,13 @@
   },
   "options": {},
   "attributes": {
-    "Encabezado": {
-      "type": "string"
+    "Division": {
+      "type": "string",
+      "required": true
     },
-    "Contenido": {
-      "type": "string"
+    "Edades": {
+      "type": "string",
+      "required": true
     }
   },
   "config": {}

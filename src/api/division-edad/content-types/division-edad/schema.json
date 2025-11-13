@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "Titulo": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Columna": {
       "type": "component",

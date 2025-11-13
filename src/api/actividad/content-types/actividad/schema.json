@@ -12,13 +12,16 @@
   "pluginOptions": {},
   "attributes": {
     "Titulo": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Subtitulo": {
       "type": "string"
     },
     "Parrafo": {
-      "type": "text"
+      "type": "text",
+      "minLength": 5,
+      "required": true
     }
   }
 }

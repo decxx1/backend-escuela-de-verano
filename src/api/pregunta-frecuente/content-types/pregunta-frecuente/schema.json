@@ -12,10 +12,14 @@
   "pluginOptions": {},
   "attributes": {
     "Pregunta": {
-      "type": "string"
+      "type": "string",
+      "minLength": 3,
+      "required": true
     },
     "Respuesta": {
-      "type": "text"
+      "type": "text",
+      "minLength": 5,
+      "required": true
     }
   }
 }

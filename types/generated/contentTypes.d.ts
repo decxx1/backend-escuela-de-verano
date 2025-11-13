@@ -450,10 +450,14 @@ export interface ApiActividadActividad extends Struct.CollectionTypeSchema {
       'api::actividad.actividad'
     > &
       Schema.Attribute.Private;
-    Parrafo: Schema.Attribute.Text;
+    Parrafo: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 5;
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     Subtitulo: Schema.Attribute.String;
-    Titulo: Schema.Attribute.String;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -519,7 +523,7 @@ export interface ApiDivisionEdadDivisionEdad
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Titulo: Schema.Attribute.String;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -640,9 +644,17 @@ export interface ApiPreguntaFrecuentePreguntaFrecuente
       'api::pregunta-frecuente.pregunta-frecuente'
     > &
       Schema.Attribute.Private;
-    Pregunta: Schema.Attribute.String;
+    Pregunta: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    Respuesta: Schema.Attribute.Text;
+    Respuesta: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 5;
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

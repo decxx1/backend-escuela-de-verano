@@ -20,8 +20,8 @@ export interface TablasColumna extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
-    Contenido: Schema.Attribute.String;
-    Encabezado: Schema.Attribute.String;
+    Division: Schema.Attribute.String & Schema.Attribute.Required;
+    Edades: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
