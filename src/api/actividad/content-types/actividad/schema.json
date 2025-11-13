@@ -18,6 +18,15 @@
     "Subtitulo": {
       "type": "string"
     },
+    "Icono": {
+      "type": "customField",
+      "customField": "plugin::strapi-plugin-iconhub.iconhub",
+      "options": {
+        "storeIconData": true,
+        "storeIconName": true
+      },
+      "required": false
+    },
     "Descripcion": {
       "type": "richtext",
       "required": true,
