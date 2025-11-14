@@ -631,6 +631,40 @@ export interface ApiInscripcionInscripcion extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPrecioPrecio extends Struct.SingleTypeSchema {
+  collectionName: 'precios';
+  info: {
+    displayName: 'Precios';
+    pluralName: 'precios';
+    singularName: 'precio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::precio.precio'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Turno: Schema.Attribute.Component<'tablas.turno', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPreguntaFrecuentePreguntaFrecuente
   extends Struct.CollectionTypeSchema {
   collectionName: 'preguntas_frecuentes';
@@ -1185,6 +1219,7 @@ declare module '@strapi/strapi' {
       'api::fecha.fecha': ApiFechaFecha;
       'api::formulario-inscripcion.formulario-inscripcion': ApiFormularioInscripcionFormularioInscripcion;
       'api::inscripcion.inscripcion': ApiInscripcionInscripcion;
+      'api::precio.precio': ApiPrecioPrecio;
       'api::pregunta-frecuente.pregunta-frecuente': ApiPreguntaFrecuentePreguntaFrecuente;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

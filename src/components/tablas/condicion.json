@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_tablas_condicions",
+  "info": {
+    "displayName": "Condiciones",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "Condicion": {
+      "type": "string",
+      "default": "Socios",
+      "required": true
+    },
+    "precios": {
+      "type": "component",
+      "component": "tablas.precios",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_tablas_turnos",
+  "info": {
+    "displayName": "Turnos",
+    "icon": "globe"
+  },
+  "options": {},
+  "attributes": {
+    "Turno": {
+      "type": "string",
+      "default": "Mañana",
+      "required": true
+    },
+    "Condiciones": {
+      "type": "component",
+      "component": "tablas.condicion",
+      "repeatable": true,
+      "min": 1
+    }
+  },
+  "config": {}
+}

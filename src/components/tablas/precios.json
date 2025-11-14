@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_tablas_precios",
+  "info": {
+    "displayName": "precios",
+    "icon": "strikeThrough"
+  },
+  "options": {},
+  "attributes": {
+    "MedioDePago": {
+      "type": "string",
+      "default": "Efectivo",
+      "required": true
+    },
+    "Precio": {
+      "type": "decimal",
+      "required": true,
+      "default": 0,
+      "min": 0
+    }
+  },
+  "config": {}
+}
