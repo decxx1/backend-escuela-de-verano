@@ -9,11 +9,11 @@
     "Turno": {
       "type": "string"
     },
-    "ingreso": {
-      "type": "time"
+    "Ingreso": {
+      "type": "string"
     },
     "Salida": {
-      "type": "time"
+      "type": "string"
     }
   },
   "config": {}

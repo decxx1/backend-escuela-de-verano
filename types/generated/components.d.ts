@@ -7,8 +7,8 @@ export interface FechasIngresoSalidaGuardia extends Struct.ComponentSchema {
     icon: 'hashtag';
   };
   attributes: {
-    ingreso: Schema.Attribute.Time;
-    Salida: Schema.Attribute.Time;
+    Ingreso: Schema.Attribute.String;
+    Salida: Schema.Attribute.String;
     Turno: Schema.Attribute.String;
   };
 }
