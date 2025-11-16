@@ -1,5 +1,43 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CardsEquipo extends Struct.ComponentSchema {
+  collectionName: 'components_cards_equipos';
+  info: {
+    displayName: 'Equipo';
+    icon: 'alien';
+  };
+  attributes: {
+    Activo: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    Descripcion: Schema.Attribute.Text;
+    Facebook: Schema.Attribute.String;
+    Imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Instagram: Schema.Attribute.String;
+    Linkedin: Schema.Attribute.String;
+    Nombre: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+    Orden: Schema.Attribute.BigInteger &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: '99999';
+          min: '0';
+        },
+        string
+      > &
+      Schema.Attribute.DefaultTo<'0'>;
+    Titulo: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+  };
+}
+
 export interface FechasIngresoSalidaGuardia extends Struct.ComponentSchema {
   collectionName: 'components_fechas_ingreso_salida_guardias';
   info: {
@@ -84,6 +122,7 @@ export interface TablasTurno extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'cards.equipo': CardsEquipo;
       'fechas.ingreso-salida-guardia': FechasIngresoSalidaGuardia;
       'tablas.columna': TablasColumna;
       'tablas.condicion': TablasCondicion;

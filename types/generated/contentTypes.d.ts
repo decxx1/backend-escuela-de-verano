@@ -472,6 +472,43 @@ export interface ApiActividadActividad extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAjusteAjuste extends Struct.SingleTypeSchema {
+  collectionName: 'ajustes';
+  info: {
+    displayName: 'Ajustes';
+    pluralName: 'ajustes';
+    singularName: 'ajuste';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FormularioInscripcion: Schema.Attribute.Media<'files'>;
+    HabilitarEquipo: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    HabilitarInscripciones: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    HabilitarPrecios: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ajuste.ajuste'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactoContacto extends Struct.SingleTypeSchema {
   collectionName: 'contactos';
   info: {
@@ -512,7 +549,7 @@ export interface ApiDivisionEdadDivisionEdad
   extends Struct.CollectionTypeSchema {
   collectionName: 'divisiones_edades';
   info: {
-    displayName: 'Divisiones-edades';
+    displayName: 'Divisiones';
     pluralName: 'divisiones-edades';
     singularName: 'division-edad';
   };
@@ -532,6 +569,63 @@ export interface ApiDivisionEdadDivisionEdad
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEquipoEquipo extends Struct.CollectionTypeSchema {
+  collectionName: 'equipos';
+  info: {
+    displayName: 'Equipo';
+    pluralName: 'equipos';
+    singularName: 'equipo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Activo: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Descripcion: Schema.Attribute.Text;
+    Facebook: Schema.Attribute.String;
+    Imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Instagram: Schema.Attribute.String;
+    Linkedin: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::equipo.equipo'
+    > &
+      Schema.Attribute.Private;
+    Nombre: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+        minLength: 3;
+      }>;
+    Orden: Schema.Attribute.BigInteger &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: '99999';
+          min: '0';
+        },
+        string
+      > &
+      Schema.Attribute.DefaultTo<'0'>;
+    publishedAt: Schema.Attribute.DateTime;
+    Titulo: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 50;
+        minLength: 3;
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -574,13 +668,12 @@ export interface ApiFechaFecha extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiFormularioInscripcionFormularioInscripcion
-  extends Struct.SingleTypeSchema {
-  collectionName: 'formulario_inscripcions';
+export interface ApiGaleriaGaleria extends Struct.CollectionTypeSchema {
+  collectionName: 'galerias';
   info: {
-    displayName: 'FormularioInscripcion';
-    pluralName: 'formulario-inscripcions';
-    singularName: 'formulario-inscripcion';
+    displayName: 'Galeria';
+    pluralName: 'galerias';
+    singularName: 'galeria';
   };
   options: {
     draftAndPublish: true;
@@ -589,13 +682,14 @@ export interface ApiFormularioInscripcionFormularioInscripcion
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Documento: Schema.Attribute.Media<'files'>;
+    Fotos: Schema.Attribute.Media<'images' | 'videos', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::formulario-inscripcion.formulario-inscripcion'
+      'api::galeria.galeria'
     > &
       Schema.Attribute.Private;
+    Nombre: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -603,12 +697,12 @@ export interface ApiFormularioInscripcionFormularioInscripcion
   };
 }
 
-export interface ApiInscripcionInscripcion extends Struct.SingleTypeSchema {
-  collectionName: 'inscripciones';
+export interface ApiNoticiaNoticia extends Struct.CollectionTypeSchema {
+  collectionName: 'noticias';
   info: {
-    displayName: 'Inscripciones';
-    pluralName: 'inscripciones';
-    singularName: 'inscripcion';
+    displayName: 'Noticias';
+    pluralName: 'noticias';
+    singularName: 'noticia';
   };
   options: {
     draftAndPublish: true;
@@ -617,21 +711,33 @@ export interface ApiInscripcionInscripcion extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Habilitado: Schema.Attribute.Boolean;
+    Imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::inscripcion.inscripcion'
+      'api::noticia.noticia'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Subtitulo: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+        minLength: 5;
+      }>;
+    Texto: Schema.Attribute.RichText & Schema.Attribute.Required;
+    Titulo: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 150;
+        minLength: 5;
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiPrecioPrecio extends Struct.SingleTypeSchema {
+export interface ApiPrecioPrecio extends Struct.CollectionTypeSchema {
   collectionName: 'precios';
   info: {
     displayName: 'Precios';
@@ -642,6 +748,14 @@ export interface ApiPrecioPrecio extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Condiciones: Schema.Attribute.Component<'tablas.condicion', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -652,13 +766,13 @@ export interface ApiPrecioPrecio extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Turno: Schema.Attribute.Component<'tablas.turno', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
+    Turno: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+        minLength: 5;
+      }> &
+      Schema.Attribute.DefaultTo<'Turno Ma\u00F1ana'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1214,11 +1328,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::actividad.actividad': ApiActividadActividad;
+      'api::ajuste.ajuste': ApiAjusteAjuste;
       'api::contacto.contacto': ApiContactoContacto;
       'api::division-edad.division-edad': ApiDivisionEdadDivisionEdad;
+      'api::equipo.equipo': ApiEquipoEquipo;
       'api::fecha.fecha': ApiFechaFecha;
-      'api::formulario-inscripcion.formulario-inscripcion': ApiFormularioInscripcionFormularioInscripcion;
-      'api::inscripcion.inscripcion': ApiInscripcionInscripcion;
+      'api::galeria.galeria': ApiGaleriaGaleria;
+      'api::noticia.noticia': ApiNoticiaNoticia;
       'api::precio.precio': ApiPrecioPrecio;
       'api::pregunta-frecuente.pregunta-frecuente': ApiPreguntaFrecuentePreguntaFrecuente;
       'plugin::content-releases.release': PluginContentReleasesRelease;

@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "equipos",
+  "info": {
+    "singularName": "equipo",
+    "pluralName": "equipos",
+    "displayName": "Equipo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Activo": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "Orden": {
+      "type": "biginteger",
+      "required": true,
+      "default": "0",
+      "min": "0",
+      "max": "99999"
+    },
+    "Imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Nombre": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 60,
+      "required": true
+    },
+    "Titulo": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 50,
+      "required": true
+    },
+    "Descripcion": {
+      "type": "text"
+    },
+    "Facebook": {
+      "type": "string"
+    },
+    "Instagram": {
+      "type": "string"
+    },
+    "Linkedin": {
+      "type": "string"
+    }
+  }
+}

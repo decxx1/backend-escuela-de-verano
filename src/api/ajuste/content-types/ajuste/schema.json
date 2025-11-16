@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "ajustes",
+  "info": {
+    "singularName": "ajuste",
+    "pluralName": "ajustes",
+    "displayName": "Ajustes"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HabilitarEquipo": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "HabilitarInscripciones": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "HabilitarPrecios": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "FormularioInscripcion": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}

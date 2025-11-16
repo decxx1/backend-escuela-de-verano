@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_cards_equipos",
+  "info": {
+    "displayName": "Equipo",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "Activo": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "Orden": {
+      "type": "biginteger",
+      "required": true,
+      "default": "0",
+      "min": "0",
+      "max": "99999"
+    },
+    "Imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Nombre": {
+      "type": "string",
+      "minLength": 3,
+      "required": true
+    },
+    "Titulo": {
+      "type": "string",
+      "minLength": 3,
+      "required": true
+    },
+    "Descripcion": {
+      "type": "text"
+    },
+    "Facebook": {
+      "type": "string"
+    },
+    "Instagram": {
+      "type": "string"
+    },
+    "Linkedin": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

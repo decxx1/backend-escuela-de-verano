@@ -1,5 +1,5 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "precios",
   "info": {
     "singularName": "precio",
@@ -12,10 +12,17 @@
   "pluginOptions": {},
   "attributes": {
     "Turno": {
+      "type": "string",
+      "default": "Turno Mañana",
+      "minLength": 5,
+      "maxLength": 30,
+      "required": true
+    },
+    "Condiciones": {
       "type": "component",
-      "component": "tablas.turno",
+      "component": "tablas.condicion",
       "repeatable": true,
-      "required": false,
+      "required": true,
       "min": 1
     }
   }
